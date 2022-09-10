@@ -6,6 +6,7 @@ const CounterButton = ({ calcType, step }) => {
   const dispatch = useDispatch();
   // const dispatch = useCounterDispatch();
 
+  console.log(add(step))
   const clickHandler = () => {
     const action = calcType === '+' ? add(step) : minus(step);
     console.log(action)
