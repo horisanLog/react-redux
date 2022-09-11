@@ -1,8 +1,10 @@
-import { createStore, combineReducers } from "redux";
-import { reducer } from "./modules/counter"
+import { configureStore } from "@reduxjs/toolkit";
+import reducer from "./modules/counter"
+import logger from "./middleware/logger"
 
-const reducers = combineReducers({
-  counter: reducer,
+export default configureStore({
+  reducer: { 
+    counter: reducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 });
-
-export default createStore(reducers);
